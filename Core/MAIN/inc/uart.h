@@ -14,9 +14,17 @@ extern "C" {
 
 #include <stdint.h>
 
+#include <stm32f1xx_ll_usart.h>
+
 void UART1_Init(void);
-void UART1_Tx(uint8_t *data, uint8_t n);
-void UART1_Rx(uint8_t *data, uint8_t n);
+
+void USART2_Init(void);
+
+void USARTx_Set_BaudRate(USART_TypeDef *USARTx, uint32_t baudRate);
+
+void USARTx_Tx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n);
+
+void USARTx_Rx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n);
 
 #ifdef __cplusplus
 }

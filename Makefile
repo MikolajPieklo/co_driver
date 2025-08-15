@@ -10,6 +10,7 @@ include tools/makefiles/makefile_clib.mk
 include tools/makefiles/makefile_common.mk
 
 SILENTMODE := yes
+USE_SBL := yes
 USE_FREERTOS := no
 FREERTOS_HEAP := heap_1
 
@@ -34,8 +35,8 @@ INC := \
 	-IDrivers/CMSIS/Include/
 
 SRC_CORE_DIRS := Core/MAIN/src Core/Flash/src Core/CC1101/src
-
 SRC_DRIVERS_DIR := Drivers/STM32F1xx_HAL_Driver/src
+SRC_SBL := tools/SBL/src
 
 ########################################################################################################################
 
