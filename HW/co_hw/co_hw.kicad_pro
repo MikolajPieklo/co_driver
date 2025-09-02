@@ -229,7 +229,7 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
@@ -239,6 +239,7 @@
       "single_global_label": "ignore",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
+      "undefined_netclass": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
       "wire_dangling": "error"
@@ -411,6 +412,14 @@
     [
       "ccf087ed-af29-4b01-8b29-73c7633787ca",
       "Root"
+    ],
+    [
+      "03ef4d79-8cc0-4095-8497-12b728c23f87",
+      "microcontroler"
+    ],
+    [
+      "08357ce8-a351-434e-a3f4-1502cd6508fc",
+      "power_supply"
     ]
   ],
   "text_variables": {}
