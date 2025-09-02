@@ -11,14 +11,17 @@
 #include <circual_buffer.h>
 #include <delay.h>
 #include <device_info.h>
+#include <ds18b20.h>
 #include <gpio.h>
 #include <hw_monitor.h>
 #include <i2c.h>
 #include <log.h>
+#include <one_wire.h>
 #include <pwm.h>
 #include <rtc.h>
 #include <spi.h>
 #include <uart.h>
+
 
 /* Dummy device */
 static const struct device main_dev = {
@@ -77,25 +80,26 @@ int main(void)
    TS_Delay_us_Init();
    RTC_Init();
    Device_Info();
-   WS25Qxx_Init();
-   if (I2C_DRV_STATUS_SUCCESS == I2C_Init(I2C2))
-   {
-      log_info(&main_dev, "I2C OK\r\n");
-   }
-   else
-   {
-      log_info(&main_dev, "I2C NOK\r\n");
-   }
+   OneWire_Init();
+   // WS25Qxx_Init();
+   // if (I2C_DRV_STATUS_SUCCESS == I2C_Init(I2C2))
+   // {
+   //    log_info(&main_dev, "I2C OK\r\n");
+   // }
+   // else
+   // {
+   //    log_info(&main_dev, "I2C NOK\r\n");
+   // }
 
-#if defined(CC1101_TX)
-   log_info(&main_dev, "CC1101 Tx\r\n");
-   CC1101_Init(CC1101_TX_ADDRESS);
-#endif
+   // #if defined(CC1101_TX)
+   //    log_info(&main_dev, "CC1101 Tx\r\n");
+   //    CC1101_Init(CC1101_TX_ADDRESS);
+   // #endif
 
-#if defined(CC1101_RX)
-   log_info(&main_dev, "CC1101 Rx\r\n");
-   CC1101_Init(CC1101_RX_ADDRESS);
-#endif
+   // #if defined(CC1101_RX)
+   //    log_info(&main_dev, "CC1101 Rx\r\n");
+   //    CC1101_Init(CC1101_RX_ADDRESS);
+   // #endif
 
    while (1)
    {
@@ -112,7 +116,9 @@ int main(void)
 
       if (TS_Get_ms() >= old_ts_ms + 500)
       {
-
+         LL_GPIO_TogglePin(LED_Port, LED_Pin);
+         DS18B20_Init();
+         old_ts_ms = TS_Get_ms();
       }
 
       // Simple CMD

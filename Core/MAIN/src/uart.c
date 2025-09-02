@@ -65,7 +65,6 @@ void UART1_Init(void)
 
 void USART2_Init(void)
 {
-   uint32_t status = 0U;
    LL_USART_InitTypeDef USART_InitStruct = {0};
    LL_GPIO_InitTypeDef  GPIO_InitStruct = {0};
 
@@ -99,7 +98,7 @@ void USART2_Init(void)
 void USARTx_Set_BaudRate(USART_TypeDef *USARTx, uint32_t baudRate)
 {
    LL_RCC_ClocksTypeDef all_clk;
-   uint32_t clock = 0U;
+   uint32_t             clock = 0U;
 
    LL_RCC_GetSystemClocksFreq(&all_clk);
    if (USARTx == USART1)
@@ -134,7 +133,7 @@ void USARTx_Rx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n)
       while (!LL_USART_IsActiveFlag_RXNE(USARTx))
       {
       }
-      data[i]= LL_USART_ReceiveData8(USARTx);
+      data[i] = LL_USART_ReceiveData8(USARTx);
    }
 }
 
