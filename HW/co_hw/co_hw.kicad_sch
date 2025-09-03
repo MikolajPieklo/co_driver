@@ -30,7 +30,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "untitled.kicad_sch"
+		(property "Sheetfile" "microcontroler.kicad_sch"
 			(at 107.95 85.6746 0)
 			(effects
 				(font
@@ -74,6 +74,48 @@
 		)
 		(property "Sheetfile" "power_supply_sch.kicad_sch"
 			(at 46.99 88.2146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "co_hw"
+				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 163.83 52.07)
+		(size 40.64 38.1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "25d0c000-50ac-4598-8379-9b26816edd2f")
+		(property "Sheetname" "7segments"
+			(at 163.83 51.3584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "7segments.kicad_sch"
+			(at 163.83 90.7546 0)
 			(effects
 				(font
 					(size 1.27 1.27)
