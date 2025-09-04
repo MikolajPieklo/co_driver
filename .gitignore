@@ -58,3 +58,6 @@ out
 .vscode-ctags
 .clang-tidy
 .clang-format
+
+#kicad
+HW/*/*/*.zip
