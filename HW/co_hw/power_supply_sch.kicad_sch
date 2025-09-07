@@ -2149,6 +2149,12 @@
 		(uuid "0889f353-f289-4183-80e9-c232e8bb8838")
 	)
 	(junction
+		(at 44.45 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2056cc1b-6eb5-434a-95ae-e9365e4eca02")
+	)
+	(junction
 		(at 154.94 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2202,6 +2208,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 59.69) (xy 44.45 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04b1842e-1573-40aa-ae63-2e78f4cd8089")
+	)
+	(wire
+		(pts
 			(xy 154.94 40.64) (xy 154.94 41.91)
 		)
 		(stroke
@@ -2249,6 +2265,16 @@
 			(type default)
 		)
 		(uuid "267f5094-4ef6-441b-b575-ff957946ee59")
+	)
+	(wire
+		(pts
+			(xy 44.45 118.11) (xy 31.75 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "297e2fde-b787-4f13-ace1-a158cdf5a00e")
 	)
 	(wire
 		(pts
@@ -2562,6 +2588,16 @@
 	)
 	(wire
 		(pts
+			(xy 57.15 104.14) (xy 62.23 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f942c491-25fc-45ed-ba05-0471b61cee51")
+	)
+	(wire
+		(pts
 			(xy 33.02 57.15) (xy 57.15 57.15)
 		)
 		(stroke
@@ -2739,6 +2775,170 @@
 		)
 	)
 	(symbol
+		(lib_id "Relay:SANYOU_SRD_Form_C")
+		(at 69.85 111.76 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1670f29a-d97a-4908-80ae-c19bb6f8ec2f")
+		(property "Reference" "K2"
+			(at 69.85 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SANYOU_SRD_Form_C"
+			(at 69.85 99.06 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Relay_THT:Relay_SPDT_SANYOU_SRD_Series_Form_C"
+			(at 71.12 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.sanyourelay.ca/public/products/pdf/SRD.pdf"
+			(at 69.85 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Sanyo SRD relay, Single Pole Miniature Power Relay,"
+			(at 69.85 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d4e5bb67-6e8e-41d2-bee8-08eebafca61b")
+		)
+		(pin "3"
+			(uuid "0eb945dd-b9c5-4d76-95d3-624236989709")
+		)
+		(pin "2"
+			(uuid "b66744e8-e84b-40fa-aa1c-29d95ab8820e")
+		)
+		(pin "4"
+			(uuid "88efb7d9-b75f-4f65-80ef-1e11216285a9")
+		)
+		(pin "5"
+			(uuid "42445dec-4b66-4c05-beec-af118e62fed0")
+		)
+		(instances
+			(project "co_hw"
+				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/08357ce8-a351-434e-a3f4-1502cd6508fc"
+					(reference "K2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Diode:1N4001")
+		(at 69.85 132.08 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "17ee63d9-30bb-43d0-b697-76368898e27d")
+		(property "Reference" "D4"
+			(at 69.85 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1N4001"
+			(at 69.85 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
+			(at 69.85 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.vishay.com/docs/88503/1n4001.pdf"
+			(at 69.85 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "50V 1A General Purpose Rectifier Diode, DO-41"
+			(at 69.85 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 69.85 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 69.85 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "da1ba1e6-b157-4ed4-b3da-ceca1d5ac2c4")
+		)
+		(pin "1"
+			(uuid "ec0985e7-a527-49ee-8282-d571090cf5e3")
+		)
+		(instances
+			(project "co_hw"
+				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/08357ce8-a351-434e-a3f4-1502cd6508fc"
+					(reference "D4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Screw_Terminal_01x03")
 		(at 27.94 31.75 180)
 		(unit 1)
@@ -2805,6 +3005,78 @@
 			(project ""
 				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/08357ce8-a351-434e-a3f4-1502cd6508fc"
 					(reference "J6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Screw_Terminal_01x03")
+		(at 26.67 118.11 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "36b01769-64b4-4878-a68b-416aec81c4ac")
+		(property "Reference" "J8"
+			(at 26.67 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Screw_Terminal_OUTPUT"
+			(at 26.67 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 26.67 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 26.67 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 26.67 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "04896a30-a89e-4ca6-888e-e10a6a02d16d")
+		)
+		(pin "3"
+			(uuid "f3099153-a117-4c60-b56e-74f0cd03662c")
+		)
+		(pin "1"
+			(uuid "2728ef1a-085d-4528-95dc-4613de2156f9")
+		)
+		(instances
+			(project "co_hw"
+				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/08357ce8-a351-434e-a3f4-1502cd6508fc"
+					(reference "J8")
 					(unit 1)
 				)
 			)

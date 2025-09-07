@@ -448,7 +448,9 @@
   },
   "libraries": {
     "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "Own_Library"
+    ]
   },
   "meta": {
     "filename": "co_hw.kicad_pro",
@@ -625,6 +627,10 @@
     [
       "25d0c000-50ac-4598-8379-9b26816edd2f",
       "7segments"
+    ],
+    [
+      "f3023918-9a15-4959-ba9c-d0d2bdfe9fec",
+      "sensors"
     ]
   ],
   "text_variables": {}

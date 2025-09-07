@@ -5,6 +5,26 @@
 	(uuid "ccf087ed-af29-4b01-8b29-73c7633787ca")
 	(paper "A4")
 	(lib_symbols)
+	(wire
+		(pts
+			(xy 148.59 53.34) (xy 161.29 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "95ef446d-76d1-4af0-9a21-1649829d1728")
+	)
+	(wire
+		(pts
+			(xy 148.59 55.88) (xy 161.29 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd6e4b01-410d-4596-8f4b-45c2940f5358")
+	)
 	(sheet
 		(at 107.95 48.26)
 		(size 40.64 36.83)
@@ -37,6 +57,26 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "H_ONE_WIRE" bidirectional
+			(at 148.59 53.34 0)
+			(uuid "1d1e73fc-193a-465a-9204-35c1dd2fb97d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "H_TIM3_PWM_BUZZER" output
+			(at 148.59 55.88 0)
+			(uuid "e350f327-2292-4af3-be52-388bbd0252ab")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
@@ -90,8 +130,8 @@
 		)
 	)
 	(sheet
-		(at 163.83 52.07)
-		(size 40.64 38.1)
+		(at 161.29 73.66)
+		(size 34.29 20.32)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -106,7 +146,7 @@
 		)
 		(uuid "25d0c000-50ac-4598-8379-9b26816edd2f")
 		(property "Sheetname" "7segments"
-			(at 163.83 51.3584 0)
+			(at 161.29 72.9484 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -115,7 +155,7 @@
 			)
 		)
 		(property "Sheetfile" "7segments.kicad_sch"
-			(at 163.83 90.7546 0)
+			(at 161.29 94.5646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -127,6 +167,68 @@
 			(project "co_hw"
 				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca"
 					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 161.29 48.26)
+		(size 34.29 20.32)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "f3023918-9a15-4959-ba9c-d0d2bdfe9fec")
+		(property "Sheetname" "sensors"
+			(at 161.29 47.5484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sensors.kicad_sch"
+			(at 161.29 69.1646 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "H_ONE_WIRE" bidirectional
+			(at 161.29 53.34 180)
+			(uuid "a08c783c-6019-45d6-aad7-3b9793e6d436")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "H_TIM3_PWM_BUZZER" input
+			(at 161.29 55.88 180)
+			(uuid "e4db8ca5-19e4-4d26-984e-6d40f4e9107f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "co_hw"
+				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca"
+					(page "5")
 				)
 			)
 		)
