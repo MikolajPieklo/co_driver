@@ -4837,7 +4837,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 130.81) (xy 148.59 132.08)
+			(xy 148.59 130.81) (xy 148.59 134.62)
 		)
 		(stroke
 			(width 0)
@@ -5084,6 +5084,16 @@
 			(type default)
 		)
 		(uuid "d9aa0ffa-dc3d-4ec0-a9f8-40e7dc0821c5")
+	)
+	(wire
+		(pts
+			(xy 144.78 134.62) (xy 148.59 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dadf9aa6-9a75-4250-99ec-4dbc61e3f768")
 	)
 	(wire
 		(pts
@@ -5385,6 +5395,16 @@
 		)
 		(uuid "3a16068e-7710-46a9-b34e-5c36118da03f")
 	)
+	(label "I2C2_SDA"
+		(at 60.96 107.95 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3cad1bfb-3a96-4235-b102-95b4e29c95cc")
+	)
 	(label "SW1"
 		(at 227.33 66.04 0)
 		(effects
@@ -5664,6 +5684,16 @@
 			(justify left bottom)
 		)
 		(uuid "c15771e9-604d-4dfa-b7c0-819456e40997")
+	)
+	(label "I2C2_SCL"
+		(at 60.96 105.41 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c51af293-023a-4452-8f0a-05e690dbe8ed")
 	)
 	(label "TIM3_PWM_SERVO"
 		(at 186.69 64.77 180)
@@ -7295,6 +7325,72 @@
 			(project "co_hw"
 				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/03ef4d79-8cc0-4095-8497-12b728c23f87"
 					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 144.78 134.62 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6fa63d0a-cb96-4997-9690-fa35e937c822")
+		(property "Reference" "#PWR048"
+			(at 144.78 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 144.78 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 144.78 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 144.78 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 144.78 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e9c5773f-277c-4a90-ac12-ac9c09424cc7")
+		)
+		(instances
+			(project "co_hw"
+				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/03ef4d79-8cc0-4095-8497-12b728c23f87"
+					(reference "#PWR048")
 					(unit 1)
 				)
 			)
