@@ -7,6 +7,16 @@
 	(lib_symbols)
 	(wire
 		(pts
+			(xy 148.59 58.42) (xy 161.29 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "10baaffd-b915-452a-9941-1119a7f90ca1")
+	)
+	(wire
+		(pts
 			(xy 148.59 53.34) (xy 161.29 53.34)
 		)
 		(stroke
@@ -72,6 +82,26 @@
 		(pin "H_TIM3_PWM_BUZZER" output
 			(at 148.59 55.88 0)
 			(uuid "e350f327-2292-4af3-be52-388bbd0252ab")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "I2C2{SDA SCL}" bidirectional
+			(at 148.59 58.42 0)
+			(uuid "8d607d4c-76f1-466b-8524-28fbd0eaa9ab")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TIM4_PWM_LED{_R _G _B}" output
+			(at 148.59 60.96 0)
+			(uuid "122cdd60-9157-4bb4-a99d-782c2e42c7ee")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -218,6 +248,16 @@
 		(pin "H_TIM3_PWM_BUZZER" input
 			(at 161.29 55.88 180)
 			(uuid "e4db8ca5-19e4-4d26-984e-6d40f4e9107f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "I2C2{SDA SCL}" bidirectional
+			(at 161.29 58.42 180)
+			(uuid "cf7e595d-d0a3-4421-900b-a02fe24396d3")
 			(effects
 				(font
 					(size 1.27 1.27)
