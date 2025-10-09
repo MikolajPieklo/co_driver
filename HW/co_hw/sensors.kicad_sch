@@ -1758,6 +1758,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "max 20mA"
+		(exclude_from_sim no)
+		(at 93.726 70.866 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "19b1cbc7-986e-4f5f-ae14-59cf9ecb8958")
+	)
 	(junction
 		(at 102.87 27.94)
 		(diameter 0)

@@ -1583,6 +1583,256 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Regulator_Switching:TPS5430DDA"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -10.16 8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "TPS5430DDA"
+				(at -1.27 8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_SO:TI_SO-PowerPAD-8_ThermalVias"
+				(at 1.27 -8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tps5430.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "3A, Step Down Swift Converter, Adjustable Output Voltage, 5.5-36V Input Voltage, PowerSO-8"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Step-Down DC-DC Switching Regulator"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "TI*SO*PowerPAD*ThermalVias*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TPS5430DDA_0_1"
+				(rectangle
+					(start -10.16 7.62)
+					(end 10.16 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "TPS5430DDA_1_1"
+				(pin power_in line
+					(at -12.7 5.08 0)
+					(length 2.54)
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 -5.08 0)
+					(length 2.54)
+					(name "EN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -10.16 2.54 0)
+					(length 2.54)
+					(hide yes)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at -10.16 -2.54 0)
+					(length 2.54)
+					(hide yes)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -10.16 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -10.16 90)
+					(length 2.54)
+					(name "GNDPAD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 12.7 5.08 180)
+					(length 2.54)
+					(name "BOOT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 12.7 0 180)
+					(length 2.54)
+					(name "PH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 12.7 -5.08 180)
+					(length 2.54)
+					(name "VSENSE"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Relay:SANYOU_SRD_Form_C"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2142,11 +2392,37 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "120mA/3V"
+		(exclude_from_sim no)
+		(at 87.122 106.426 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "176435b9-85fe-41f7-9345-5caac2bac382")
+	)
+	(text "120mA/3V"
+		(exclude_from_sim no)
+		(at 86.868 63.246 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e30e9ef0-878d-415d-b7d9-c85c84da2190")
+	)
 	(junction
 		(at 44.45 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0889f353-f289-4183-80e9-c232e8bb8838")
+	)
+	(junction
+		(at 60.96 73.66)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1a93ad08-3fd6-4e1f-94b1-0f258d0399b0")
 	)
 	(junction
 		(at 44.45 59.69)
@@ -2161,10 +2437,22 @@
 		(uuid "20d2cc8c-7592-4edc-b78a-6b30a35231dd")
 	)
 	(junction
+		(at 78.74 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "28169110-cbd2-43bb-8520-dc2e9f68dcd2")
+	)
+	(junction
 		(at 41.91 62.23)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "35f79743-8ca3-47b1-adbd-7925c2c5ad7a")
+	)
+	(junction
+		(at 78.74 129.54)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "461ba94f-46ba-4360-8fa2-64f105d3dbf9")
 	)
 	(junction
 		(at 69.85 29.21)
@@ -2177,6 +2465,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "63e2c590-d456-4de0-b559-f89069db3369")
+	)
+	(junction
+		(at 60.96 116.84)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "99bbf437-c4be-40b9-b1b4-e0075c7aa7da")
 	)
 	(junction
 		(at 54.61 29.21)
@@ -2204,6 +2498,16 @@
 	)
 	(wire
 		(pts
+			(xy 60.96 73.66) (xy 62.23 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "00b9542c-8fbe-46f5-8806-0db621bb134e")
+	)
+	(wire
+		(pts
 			(xy 48.26 29.21) (xy 54.61 29.21)
 		)
 		(stroke
@@ -2211,6 +2515,26 @@
 			(type default)
 		)
 		(uuid "010ab8f3-7eba-4c2d-a747-941e6cc988db")
+	)
+	(wire
+		(pts
+			(xy 73.66 86.36) (xy 78.74 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01c54973-edef-4598-b023-c2bc95f9e813")
+	)
+	(wire
+		(pts
+			(xy 62.23 116.84) (xy 60.96 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02c70068-abd7-4167-812d-ec89add0e217")
 	)
 	(wire
 		(pts
@@ -2234,6 +2558,16 @@
 	)
 	(wire
 		(pts
+			(xy 60.96 116.84) (xy 60.96 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bf6fb85-2367-4bfd-9a89-04112a381d8a")
+	)
+	(wire
+		(pts
 			(xy 57.15 57.15) (xy 57.15 60.96)
 		)
 		(stroke
@@ -2254,6 +2588,16 @@
 	)
 	(wire
 		(pts
+			(xy 60.96 129.54) (xy 66.04 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d594ba0-fb6c-4c94-b407-49d1a1140eb7")
+	)
+	(wire
+		(pts
 			(xy 88.9 34.29) (xy 86.36 34.29)
 		)
 		(stroke
@@ -2261,6 +2605,26 @@
 			(type default)
 		)
 		(uuid "20201785-20c2-4b90-b9ca-f8ec15af54b0")
+	)
+	(wire
+		(pts
+			(xy 58.42 116.84) (xy 60.96 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "22b5944d-9650-4ada-b5e9-cf9fb5cf90a4")
+	)
+	(wire
+		(pts
+			(xy 60.96 86.36) (xy 60.96 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2530090c-226a-4af1-9b1e-22bec7856f46")
 	)
 	(wire
 		(pts
@@ -2281,6 +2645,26 @@
 			(type default)
 		)
 		(uuid "297e2fde-b787-4f13-ace1-a158cdf5a00e")
+	)
+	(wire
+		(pts
+			(xy 46.99 104.14) (xy 62.23 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2b9e689f-60f0-4b76-aa0e-b3d30a1fb18f")
+	)
+	(wire
+		(pts
+			(xy 78.74 73.66) (xy 78.74 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2bd1ff8f-fa91-4bfc-b1ba-25002cedfb63")
 	)
 	(wire
 		(pts
@@ -2311,6 +2695,16 @@
 			(type default)
 		)
 		(uuid "3be65b7d-5e4d-44e1-8582-f771b7cb697b")
+	)
+	(wire
+		(pts
+			(xy 78.74 129.54) (xy 78.74 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d54be56-6236-4c31-b25b-f403d908f105")
 	)
 	(wire
 		(pts
@@ -2444,6 +2838,16 @@
 	)
 	(wire
 		(pts
+			(xy 46.99 115.57) (xy 46.99 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a89493b-f2b7-4b96-8786-c272e94f232e")
+	)
+	(wire
+		(pts
 			(xy 41.91 44.45) (xy 38.1 44.45)
 		)
 		(stroke
@@ -2574,6 +2978,36 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 115.57) (xy 46.99 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5750e07-161c-4092-ba8c-2ebf7ff5b023")
+	)
+	(wire
+		(pts
+			(xy 77.47 73.66) (xy 78.74 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b7ab2291-19f2-44b8-95d2-5ed2dcd26fab")
+	)
+	(wire
+		(pts
+			(xy 78.74 116.84) (xy 78.74 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b84599ff-f425-42d6-99ea-12912996657d")
+	)
+	(wire
+		(pts
 			(xy 54.61 29.21) (xy 54.61 31.75)
 		)
 		(stroke
@@ -2584,13 +3018,13 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 115.57) (xy 57.15 104.14)
+			(xy 78.74 86.36) (xy 78.74 88.9)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c53159b3-8fdf-44c7-a2e3-0dfcf18bcc5b")
+		(uuid "bfb30ab8-ad09-4c43-ac91-6d17e5756af8")
 	)
 	(wire
 		(pts
@@ -2614,13 +3048,33 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 115.57) (xy 57.15 115.57)
+			(xy 73.66 129.54) (xy 78.74 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e8c922bd-99a9-42ae-bf24-0fb7066e2cd0")
+		(uuid "e3512963-4fd5-4815-91c5-3d14fb102edc")
+	)
+	(wire
+		(pts
+			(xy 66.04 86.36) (xy 60.96 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e712883f-7388-47f5-865f-8cb0fc3285da")
+	)
+	(wire
+		(pts
+			(xy 58.42 73.66) (xy 60.96 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec934c98-3a64-49cd-a7ed-2686f3036401")
 	)
 	(wire
 		(pts
@@ -2634,13 +3088,13 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 104.14) (xy 62.23 104.14)
+			(xy 77.47 116.84) (xy 78.74 116.84)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f942c491-25fc-45ed-ba05-0471b61cee51")
+		(uuid "f3eb8401-a6d6-4e4a-8245-bce82d362a72")
 	)
 	(wire
 		(pts
@@ -2662,6 +3116,28 @@
 		)
 		(uuid "ffe10e88-b05b-4c4a-83f7-41a449230f21")
 	)
+	(global_label "RELAY_2"
+		(shape input)
+		(at 58.42 116.84 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "32077ccc-2898-4aef-a799-0c9faee8865a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 47.6334 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "+24V"
 		(shape output)
 		(at 170.18 29.21 0)
@@ -2680,6 +3156,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "RELAY_1"
+		(shape input)
+		(at 58.42 73.66 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a4af090d-7fcb-48d5-b326-59f6c114c8cc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 47.6334 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -2900,7 +3398,7 @@
 	)
 	(symbol
 		(lib_id "Diode:1N4001")
-		(at 69.85 132.08 0)
+		(at 69.85 129.54 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2909,7 +3407,7 @@
 		(fields_autoplaced yes)
 		(uuid "17ee63d9-30bb-43d0-b697-76368898e27d")
 		(property "Reference" "D4"
-			(at 69.85 125.73 0)
+			(at 69.85 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2917,7 +3415,7 @@
 			)
 		)
 		(property "Value" "1N4001"
-			(at 69.85 128.27 0)
+			(at 69.85 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2925,7 +3423,7 @@
 			)
 		)
 		(property "Footprint" "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
-			(at 69.85 132.08 0)
+			(at 69.85 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2934,7 +3432,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.vishay.com/docs/88503/1n4001.pdf"
-			(at 69.85 132.08 0)
+			(at 69.85 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2943,7 +3441,7 @@
 			)
 		)
 		(property "Description" "50V 1A General Purpose Rectifier Diode, DO-41"
-			(at 69.85 132.08 0)
+			(at 69.85 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2952,7 +3450,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 69.85 132.08 0)
+			(at 69.85 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2961,7 +3459,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 69.85 132.08 0)
+			(at 69.85 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3123,6 +3621,72 @@
 			(project "co_hw"
 				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/08357ce8-a351-434e-a3f4-1502cd6508fc"
 					(reference "J8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 78.74 130.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4ab2f0dd-c5cd-4071-b3ed-7e8d5a72cd53")
+		(property "Reference" "#PWR052"
+			(at 78.74 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 78.74 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 78.74 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 78.74 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "96ff66ee-ee63-46c9-9c58-8400b2914aa9")
+		)
+		(instances
+			(project "co_hw"
+				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/08357ce8-a351-434e-a3f4-1502cd6508fc"
+					(reference "#PWR052")
 					(unit 1)
 				)
 			)
@@ -3422,6 +3986,97 @@
 		)
 	)
 	(symbol
+		(lib_id "Regulator_Switching:TPS5430DDA")
+		(at 167.64 76.2 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8d53be3f-6632-4799-9580-3351c56fc0de")
+		(property "Reference" "U9"
+			(at 167.64 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TPS5430DDA"
+			(at 167.64 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:TI_SO-PowerPAD-8_ThermalVias"
+			(at 168.91 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tps5430.pdf"
+			(at 167.64 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "3A, Step Down Swift Converter, Adjustable Output Voltage, 5.5-36V Input Voltage, PowerSO-8"
+			(at 167.64 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "83700da3-21d4-4b2b-81a1-ab23c0303d03")
+		)
+		(pin "1"
+			(uuid "e0f46826-5b17-4cba-a135-685044373317")
+		)
+		(pin "7"
+			(uuid "5797386c-826d-49e2-8133-87fc074afed9")
+		)
+		(pin "5"
+			(uuid "a6122f55-982b-4e70-b29f-31112a60be74")
+		)
+		(pin "2"
+			(uuid "9bbfd5f8-0252-4f99-bf71-84ca3d734bf0")
+		)
+		(pin "3"
+			(uuid "0c7eb23e-139b-4db9-9077-71ea7e0daed3")
+		)
+		(pin "6"
+			(uuid "895dd0f6-c82f-4ace-8528-c6579c32679b")
+		)
+		(pin "9"
+			(uuid "cd523104-10d4-4b58-8e60-019ed2b78ca7")
+		)
+		(pin "8"
+			(uuid "f7315a63-905a-46a6-b45b-705764997380")
+		)
+		(instances
+			(project ""
+				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/08357ce8-a351-434e-a3f4-1502cd6508fc"
+					(reference "U9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 154.94 41.91 0)
 		(unit 1)
@@ -3604,7 +4259,7 @@
 	)
 	(symbol
 		(lib_id "Diode:1N4001")
-		(at 69.85 88.9 0)
+		(at 69.85 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3613,7 +4268,7 @@
 		(fields_autoplaced yes)
 		(uuid "b76dfe30-c9ef-41ba-acbd-9a4f1ba0c21c")
 		(property "Reference" "D3"
-			(at 69.85 82.55 0)
+			(at 69.85 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3621,7 +4276,7 @@
 			)
 		)
 		(property "Value" "1N4001"
-			(at 69.85 85.09 0)
+			(at 69.85 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3629,7 +4284,7 @@
 			)
 		)
 		(property "Footprint" "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
-			(at 69.85 88.9 0)
+			(at 69.85 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3638,7 +4293,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.vishay.com/docs/88503/1n4001.pdf"
-			(at 69.85 88.9 0)
+			(at 69.85 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3647,7 +4302,7 @@
 			)
 		)
 		(property "Description" "50V 1A General Purpose Rectifier Diode, DO-41"
-			(at 69.85 88.9 0)
+			(at 69.85 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3656,7 +4311,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 69.85 88.9 0)
+			(at 69.85 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3665,7 +4320,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 69.85 88.9 0)
+			(at 69.85 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3683,6 +4338,72 @@
 			(project ""
 				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/08357ce8-a351-434e-a3f4-1502cd6508fc"
 					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 78.74 88.9 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c203f5ec-f039-4fdf-94ec-2aa841bcdb43")
+		(property "Reference" "#PWR051"
+			(at 78.74 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 78.74 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 78.74 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 78.74 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a2f61b02-90b4-421e-a3fb-0eacbae5c630")
+		)
+		(instances
+			(project ""
+				(path "/ccf087ed-af29-4b01-8b29-73c7633787ca/08357ce8-a351-434e-a3f4-1502cd6508fc"
+					(reference "#PWR051")
 					(unit 1)
 				)
 			)

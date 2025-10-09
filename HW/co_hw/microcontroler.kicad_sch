@@ -3641,6 +3641,26 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "max 25mA"
+		(exclude_from_sim no)
+		(at 265.684 20.066 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "74f3c92b-87cb-4ebe-9118-9a1d4f113c21")
+	)
+	(text "max 35mA"
+		(exclude_from_sim no)
+		(at 263.652 128.778 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d804a969-abdc-4143-adc4-47fbc5c94408")
+	)
 	(junction
 		(at 254 99.06)
 		(diameter 0)
@@ -4247,6 +4267,16 @@
 			(type default)
 		)
 		(uuid "309dd932-0229-44e4-9a0e-b5cc8f6150cf")
+	)
+	(wire
+		(pts
+			(xy 115.57 115.57) (xy 130.81 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "35d390dc-b3cf-4d21-b43d-afaf478d42cd")
 	)
 	(wire
 		(pts
@@ -5437,6 +5467,16 @@
 			(type default)
 		)
 		(uuid "c02c1b36-cf1a-4a4d-bbfe-af599bca5588")
+	)
+	(wire
+		(pts
+			(xy 115.57 107.95) (xy 130.81 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0b188d6-8213-48e8-bc62-1191d90a937d")
 	)
 	(wire
 		(pts
@@ -6658,6 +6698,28 @@
 			)
 		)
 	)
+	(global_label "RELAY_2"
+		(shape output)
+		(at 115.57 115.57 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e8e8d37a-ea47-4b38-91f1-8f10d650fcd7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 104.7834 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "G_PRESSURE_SENSOR_ANALOG"
 		(shape input)
 		(at 168.91 57.15 0)
@@ -6676,6 +6738,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "RELAY_1"
+		(shape output)
+		(at 115.57 107.95 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "efc68766-5072-40be-b506-bab6dbbb2aa7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 104.7834 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
