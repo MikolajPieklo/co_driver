@@ -1,5 +1,6 @@
 #include "main.h"
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,7 +23,6 @@
 #include <spi.h>
 #include <uart.h>
 
-
 /* Dummy device */
 static const struct device main_dev = {
    .name = "MAIN",
@@ -35,6 +35,7 @@ volatile uint32_t  irq_aux_nr = 0;
 volatile uint32_t  irq_uart_nr = 0;
 uint8_t            irq_buff[10];
 static uint32_t    old_ts_ms = 0;
+static bool        is_task_executed = false;
 volatile CirBuff_T cb_uart1_tx = {.tail = 0,
                                   .head = 0,
                                   .size = CIRCUAL_BUFFER_SIZE,
@@ -81,15 +82,16 @@ int main(void)
    RTC_Init();
    Device_Info();
    OneWire_Init();
-   // WS25Qxx_Init();
-   // if (I2C_DRV_STATUS_SUCCESS == I2C_Init(I2C2))
-   // {
-   //    log_info(&main_dev, "I2C OK\r\n");
-   // }
-   // else
-   // {
-   //    log_info(&main_dev, "I2C NOK\r\n");
-   // }
+   LL_GPIO_SetPinMode(GPIOB, LL_GPIO_PIN_9, LL_GPIO_MODE_OUTPUT);
+   //  WS25Qxx_Init();
+   //  if (I2C_DRV_STATUS_SUCCESS == I2C_Init(I2C2))
+   //  {
+   //     log_info(&main_dev, "I2C OK\r\n");
+   //  }
+   //  else
+   //  {
+   //     log_info(&main_dev, "I2C NOK\r\n");
+   //  }
 
    // #if defined(CC1101_TX)
    //    log_info(&main_dev, "CC1101 Tx\r\n");
@@ -100,7 +102,9 @@ int main(void)
    //    log_info(&main_dev, "CC1101 Rx\r\n");
    //    CC1101_Init(CC1101_RX_ADDRESS);
    // #endif
-
+   uint8_t time[3];
+   int16_t temperature = 0;
+   int8_t  status = 0;
    while (1)
    {
 
@@ -114,10 +118,46 @@ int main(void)
       CC1101_Rx_Debug();
 #endif
 
+      RTC_Get_Time(time);
+
+      if ((time[2] % 10 == 0) && (is_task_executed == false))
+      {
+         status = DS18B20_Init();
+         if (0 != status)
+         {
+            log_err(&main_dev, "DS18B20 Init Error\r\n");
+            continue;
+         }
+         status = DS18B20_Get_Temperature(&temperature);
+         if (0 == status)
+         {
+            if (temperature >= 4500)
+            {
+               LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_9);
+            }
+            else
+            {
+               LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_9);
+            }
+            is_task_executed = true;
+         }
+         else
+         {
+            log_err(&main_dev, "DS18B20 Get Temperature Error\r\n");
+         }
+      }
+      else if (time[2] % 10 == 1)
+      {
+         is_task_executed = false;
+      }
+      else
+      {
+      }
+
+
       if (TS_Get_ms() >= old_ts_ms + 500)
       {
          LL_GPIO_TogglePin(LED_Port, LED_Pin);
-         DS18B20_Init();
          old_ts_ms = TS_Get_ms();
       }
 

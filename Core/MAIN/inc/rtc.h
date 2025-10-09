@@ -14,16 +14,18 @@ extern "C" {
 
 #include <stdint.h>
 
-   void RTC_Init(void);
+void RTC_Init(void);
 
-   /**
-     * @brief  Display the current time and date.
-     * @param  None
-     * @retval None
-     */
-   void Show_RTC_Calendar(void);
+/**
+ * @brief  Display the current time and date.
+ * @param  None
+ * @retval None
+ */
+void RTC_Get_Time(uint8_t *time);
 
-   void Get_RTC_Time(uint8_t *tab);
+void Show_RTC_Calendar(void);
+
+void Get_RTC_Time(uint8_t *tab);
 
 #ifdef __cplusplus
 }

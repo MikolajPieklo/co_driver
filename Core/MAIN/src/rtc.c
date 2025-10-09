@@ -127,6 +127,15 @@ void Show_RTC_Calendar(void)
            (2000 + RTC_DateStruct.year));
 }
 
+void RTC_Get_Time(uint8_t *time)
+{
+   rtc_time_structupadate();
+   rtc_date_structupdate();
+   time[0] = RTC_TimeStruct.hour;
+   time[1] = RTC_TimeStruct.min;
+   time[2] = RTC_TimeStruct.sec;
+}
+
 void Get_RTC_Time(uint8_t *tab)
 {
    uint8_t i = 0;
