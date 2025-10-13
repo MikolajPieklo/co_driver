@@ -24,7 +24,7 @@ void USARTx_Set_BaudRate(USART_TypeDef *USARTx, uint32_t baudRate);
 
 void USARTx_Tx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n);
 
-void USARTx_Rx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n);
+int8_t USARTx_Rx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n);
 
 #ifdef __cplusplus
 }

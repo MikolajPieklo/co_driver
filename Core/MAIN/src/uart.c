@@ -75,11 +75,10 @@ void USART2_Init(void)
    GPIO_InitStruct.Pin = LL_GPIO_PIN_2;
    GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
    GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_HIGH;
-   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_OPENDRAIN;
    GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
 
    LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 
    LL_USART_Disable(USART2);
    USART_InitStruct.BaudRate = 115200;
@@ -125,7 +124,7 @@ void USARTx_Tx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n)
    }
 }
 
-void USARTx_Rx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n)
+int8_t USARTx_Rx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n)
 {
    uint32_t i = 0U;
    for (i = 0; i < n; i++)
@@ -135,6 +134,7 @@ void USARTx_Rx(USART_TypeDef *USARTx, uint8_t *data, uint8_t n)
       }
       data[i] = LL_USART_ReceiveData8(USARTx);
    }
+   return (int8_t) LL_USART_IsActiveFlag_NE(USARTx);
 }
 
 void USART1_IRQHandler(void)
