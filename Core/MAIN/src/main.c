@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include <stm32f1xx_ll_gpio.h>
+#include <stm32f1xx_ll_iwdg.h>
 #include <stm32f1xx_ll_spi.h>
 
 #include <WS25Qxx.h>
@@ -21,6 +22,8 @@
 #include <pwm.h>
 #include <rtc.h>
 #include <spi.h>
+#include <string.h>
+#include <tm1637.h>
 #include <uart.h>
 
 /* Dummy device */
@@ -28,6 +31,12 @@ static const struct device main_dev = {
    .name = "MAIN",
 };
 
+typedef struct
+{
+   int16_t temperature;
+   bool    is_pomp_on;
+   uint8_t ds18b20_error_cnt;
+} cod_t;
 
 uint8_t address[] = {0xE7, 0xE7, 0xE7, 0xE7, 0xE7};
 
@@ -47,6 +56,7 @@ volatile CirBuff_T cb_uart1_rx = {.tail = 0,
                                   .USARTx = USART1};
 
 void SystemClock_Config(void);
+void IWDG_Init(void);
 
 /**
  * @brief  The application entry point.
@@ -83,6 +93,14 @@ int main(void)
    Device_Info();
    OneWire_Init();
    LL_GPIO_SetPinMode(GPIOB, LL_GPIO_PIN_9, LL_GPIO_MODE_OUTPUT);
+   LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_9);
+
+   IWDG_Init();
+   TM1637Init();
+   TM1637ShowStartMessage();
+   TM1637SetBrightness(7);
+   cod_t cod;
+   memset(&cod, 0, sizeof(cod_t));
    //  WS25Qxx_Init();
    //  if (I2C_DRV_STATUS_SUCCESS == I2C_Init(I2C2))
    //  {
@@ -103,7 +121,6 @@ int main(void)
    //    CC1101_Init(CC1101_RX_ADDRESS);
    // #endif
    uint8_t time[3];
-   int16_t temperature = 0;
    int8_t  status = 0;
    while (1)
    {
@@ -122,28 +139,41 @@ int main(void)
 
       if ((time[2] % 10 == 0) && (is_task_executed == false))
       {
+         is_task_executed = true;
          status = DS18B20_Init();
          if (0 != status)
          {
             log_err(&main_dev, "DS18B20 Init Error\r\n");
             continue;
          }
-         status = DS18B20_Get_Temperature(&temperature);
+         status = DS18B20_Get_Temperature(&cod.temperature);
          if (0 == status)
          {
-            if (temperature >= 4500)
+            cod.ds18b20_error_cnt = 0;
+            if (cod.temperature >= 40)
             {
+               cod.is_pomp_on = true;
                LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_9);
+               TM1637DisplayDecimal(cod.temperature, 1);
             }
             else
             {
+               cod.is_pomp_on = false;
                LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_9);
+               TM1637DisplayDecimal(cod.temperature, 0);
             }
-            is_task_executed = true;
          }
          else
          {
+            cod.ds18b20_error_cnt++;
+            cod.is_pomp_on = false;
+            LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_9);
+            TM1637ShowError();
             log_err(&main_dev, "DS18B20 Get Temperature Error\r\n");
+            if (cod.ds18b20_error_cnt >= 5)
+            {
+               NVIC_SystemReset();
+            }
          }
       }
       else if (time[2] % 10 == 1)
@@ -154,12 +184,23 @@ int main(void)
       {
       }
 
-
-      if (TS_Get_ms() >= old_ts_ms + 500)
+      if (cod.is_pomp_on == true)
       {
-         LL_GPIO_TogglePin(LED_Port, LED_Pin);
-         old_ts_ms = TS_Get_ms();
+         if (TS_Get_ms() >= old_ts_ms + 100)
+         {
+            LL_GPIO_TogglePin(LED_Port, LED_Pin);
+            old_ts_ms = TS_Get_ms();
+         }
       }
+      else
+      {
+         if (TS_Get_ms() >= old_ts_ms + 1000)
+         {
+            LL_GPIO_TogglePin(LED_Port, LED_Pin);
+            old_ts_ms = TS_Get_ms();
+         }
+      }
+
 
       // Simple CMD
       if (cb_uart1_rx.head != cb_uart1_rx.tail)
@@ -170,6 +211,7 @@ int main(void)
          }
          cb_uart1_rx.tail++;
       }
+      LL_IWDG_ReloadCounter(IWDG);
    }
 }
 
@@ -239,3 +281,28 @@ void assert_failed(uint8_t *file, uint32_t line)
    // log_info(&main_dev, "Wrong parameters value: file %s on line %ld\r\n", file, line);
 }
 #endif /* USE_FULL_ASSERT */
+
+void IWDG_Init(void)
+{
+   /* Włącz zegar LSI */
+   LL_RCC_LSI_Enable();
+   while (LL_RCC_LSI_IsReady() != 1)
+      ;
+
+   /* Odblokuj dostęp do rejestrów IWDG */
+   LL_IWDG_EnableWriteAccess(IWDG);
+
+   /* Ustaw preskaler i wartość przeładowania */
+   LL_IWDG_SetPrescaler(IWDG, LL_IWDG_PRESCALER_64);
+   LL_IWDG_SetReloadCounter(IWDG, 625); // max = 0x0FFF
+
+   /* Zatwierdź ustawienia i włącz IWDG */
+   LL_IWDG_Enable(IWDG);
+
+   /* Poczekaj na synchronizację */
+   while (LL_IWDG_IsReady(IWDG) != 1)
+      ;
+
+   /* Odśwież licznik na start */
+   LL_IWDG_ReloadCounter(IWDG);
+}

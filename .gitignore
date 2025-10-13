@@ -61,3 +61,7 @@ out
 
 #kicad
 HW/*/*/*.zip
+*.kicad_sch-bak
+
+#clangd
+.cache
