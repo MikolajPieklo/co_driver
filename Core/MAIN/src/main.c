@@ -8,6 +8,7 @@
 #include <stm32f1xx_ll_iwdg.h>
 #include <stm32f1xx_ll_spi.h>
 
+#include "sht40.h"
 #include <WS25Qxx.h>
 #include <cc1101.h>
 #include <circual_buffer.h>
@@ -25,6 +26,9 @@
 #include <string.h>
 #include <tm1637.h>
 #include <uart.h>
+
+// #define DS18B20
+#define SHT40
 
 /* Dummy device */
 static const struct device main_dev = {
@@ -80,7 +84,9 @@ int main(void)
 
    /* Configure the system clock */
    SystemClock_Config();
-   SysTick_Config(SystemCoreClock / 1000);
+   LL_SYSTICK_SetClkSource(LL_SYSTICK_CLKSOURCE_HCLK);
+   LL_Init1msTick(72000000);
+   // SysTick_Config(SystemCoreClock / 1000);
    LL_SYSTICK_EnableIT();
 
    /* Initialize all configured peripherals */
@@ -91,7 +97,9 @@ int main(void)
    TS_Delay_us_Init();
    RTC_Init();
    Device_Info();
+#ifdef DS18B20
    OneWire_Init();
+#endif
    LL_GPIO_SetPinMode(GPIOB, LL_GPIO_PIN_9, LL_GPIO_MODE_OUTPUT);
    LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_9);
 
@@ -99,6 +107,7 @@ int main(void)
    TM1637Init();
    TM1637ShowStartMessage();
    TM1637SetBrightness(7);
+   I2C_Init(I2C2);
    cod_t cod;
    memset(&cod, 0, sizeof(cod_t));
    //  WS25Qxx_Init();
@@ -140,13 +149,21 @@ int main(void)
       if ((time[2] % 10 == 0) && (is_task_executed == false))
       {
          is_task_executed = true;
+#ifdef DS18B20
          status = DS18B20_Init();
          if (0 != status)
          {
             log_err(&main_dev, "DS18B20 Init Error\r\n");
             continue;
          }
+#endif
+
+#ifdef DS18B20
          status = DS18B20_Get_Temperature(&cod.temperature);
+#endif
+#ifdef SHT40
+         status = SHT40_Get_Temperature(&cod.temperature);
+#endif
          if (0 == status)
          {
             cod.ds18b20_error_cnt = 0;
@@ -225,6 +242,8 @@ void SystemClock_Config(void)
    while (LL_FLASH_GetLatency() != LL_FLASH_LATENCY_2)
    {
    }
+   LL_FLASH_EnablePrefetch();
+
    LL_RCC_HSE_Enable();
 
    /* Wait till HSE is ready */
@@ -247,8 +266,9 @@ void SystemClock_Config(void)
    while (LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
    {
    }
-   LL_Init1msTick(72000000);
-   LL_SetSystemCoreClock(72000000);
+
+   SystemCoreClockUpdate();
+   // LL_SetSystemCoreClock(72000000);
 }
 
 /**
@@ -287,7 +307,8 @@ void IWDG_Init(void)
    /* Włącz zegar LSI */
    LL_RCC_LSI_Enable();
    while (LL_RCC_LSI_IsReady() != 1)
-      ;
+   {
+   }
 
    /* Odblokuj dostęp do rejestrów IWDG */
    LL_IWDG_EnableWriteAccess(IWDG);
