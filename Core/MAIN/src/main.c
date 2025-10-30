@@ -8,6 +8,7 @@
 #include <stm32f1xx_ll_iwdg.h>
 #include <stm32f1xx_ll_spi.h>
 
+#include "beep.h"
 #include "sht40.h"
 #include <WS25Qxx.h>
 #include <cc1101.h>
@@ -26,6 +27,7 @@
 #include <string.h>
 #include <tm1637.h>
 #include <uart.h>
+
 
 // #define DS18B20
 #define SHT40
@@ -108,6 +110,8 @@ int main(void)
    TM1637ShowStartMessage();
    TM1637SetBrightness(7);
    I2C_Init(I2C2);
+   Beep_Init();
+   Beep_Pulse(100);
    cod_t cod;
    memset(&cod, 0, sizeof(cod_t));
    //  WS25Qxx_Init();
@@ -179,6 +183,10 @@ int main(void)
                LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_9);
                TM1637DisplayDecimal(cod.temperature, 0);
             }
+            if (0x01 == Beep_Get_Warning_Status())
+            {
+               Beep_Clear_Warning();
+            }
          }
          else
          {
@@ -186,9 +194,10 @@ int main(void)
             cod.is_pomp_on = false;
             LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_9);
             TM1637ShowError();
-            log_err(&main_dev, "DS18B20 Get Temperature Error\r\n");
+            log_err(&main_dev, "SHT40 Get Temperature Error\r\n");
             if (cod.ds18b20_error_cnt >= 5)
             {
+               Beep_Set_Warning();
                NVIC_SystemReset();
             }
          }
@@ -217,17 +226,18 @@ int main(void)
             old_ts_ms = TS_Get_ms();
          }
       }
+      Beep_Task();
 
 
-      // Simple CMD
-      if (cb_uart1_rx.head != cb_uart1_rx.tail)
-      {
-         if (cb_uart1_rx.data[cb_uart1_rx.tail] == 0x00)
-         {
-            WS25Qxx_Erase_Chip();
-         }
-         cb_uart1_rx.tail++;
-      }
+      //       // Simple CMD
+      //       if (cb_uart1_rx.head != cb_uart1_rx.tail)
+      //       {
+      //          if (cb_uart1_rx.data[cb_uart1_rx.tail] == 0x00)
+      //          {
+      //             WS25Qxx_Erase_Chip();
+      //          }
+      //          cb_uart1_rx.tail++;
+      //       }
       LL_IWDG_ReloadCounter(IWDG);
    }
 }
@@ -315,7 +325,7 @@ void IWDG_Init(void)
 
    /* Ustaw preskaler i wartość przeładowania */
    LL_IWDG_SetPrescaler(IWDG, LL_IWDG_PRESCALER_64);
-   LL_IWDG_SetReloadCounter(IWDG, 625); // max = 0x0FFF
+   LL_IWDG_SetReloadCounter(IWDG, 825); // max = 0x0FFF
 
    /* Zatwierdź ustawienia i włącz IWDG */
    LL_IWDG_Enable(IWDG);
