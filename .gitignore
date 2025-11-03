@@ -64,4 +64,6 @@ HW/*/*/*.zip
 *.kicad_sch-bak
 
 #clangd
+.clangd
 .cache
+compile_commands.json

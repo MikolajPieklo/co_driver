@@ -2,6 +2,7 @@
 # Date: 11.08.2025
 # Project: co_driver.
 # License: Opensource
+# Version: 1.0.0
 
 include tools/makefiles/makefile_colors.mk
 include tools/makefiles/makefile_info.mk
@@ -14,9 +15,10 @@ USE_SBL := yes
 USE_FREERTOS := no
 FREERTOS_HEAP := heap_1
 
-NAME := $(OUT_DIR)/TARGET
+NAME := $(OUT_DIR)/APP
 NAME_STARTUP_FILE := startup_stm32f103c8tx
-NAME_LINKER_SCRIPT := STM32F103C8TX_FLASH
+NAME_APP_LINKER_SCRIPT := STM32F103C8TX_FLASH_APP
+NAME_SBL_LINKER_SCRIPT := STM32F103C8TX_FLASH_SBL
 NAME_OPENOCD_CFG := stm32f1x
 DEVICE := STM32F103xB
 SW_FLAG := LORA_E32_RX
@@ -40,10 +42,11 @@ SRC_SBL := tools/SBL/src
 
 ########################################################################################################################
 
-.PHONY: all release
+.PHONY: all release sbl app
 
-all: check_flags DIR ELF HEX
-
+all: check_flags DIR make_app make_sbl HEX_APP HEX_SBL HEX_COMBINED
+sbl: check_flags DIR make_sbl HEX_SBL
+app: check_flags DIR make_app HEX_APP
 release : all
 
 include tools/makefiles/makefile_dependencies.mk
@@ -53,5 +56,6 @@ include tools/makefiles/target_chip.mk
 include tools/makefiles/target_clean.mk
 include tools/makefiles/target_dir.mk
 include tools/makefiles/target_doc.mk
-include tools/makefiles/target_elf.mk
+include tools/makefiles/make_app.mk
+include tools/makefiles/make_sbl.mk
 include tools/makefiles/target_hex.mk
