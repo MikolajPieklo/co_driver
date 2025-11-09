@@ -1,5 +1,5 @@
 # Author: M Pieklo
-# Date: 11.08.2025
+# Date: 09.11.2025
 # Project: co_driver.
 # License: Opensource
 # Version: 1.0.0
@@ -29,14 +29,15 @@ include tools/makefiles/makefile_flags.mk
 
 INC := \
 	-ICore/MAIN/inc/ \
-	-ICore/Flash/inc \
 	-ICore/CC1101/inc \
 	-Itools/Reuse/inc \
 	-IDrivers/STM32F1xx_HAL_Driver/inc/ \
 	-IDrivers/CMSIS/Device/ST/STM32F1xx/Include/ \
-	-IDrivers/CMSIS/Include/
+	-IDrivers/CMSIS/Include/ \
+	-Itools/Reuse/WS25Qxx/inc/ \
+	-Itools/Reuse/CC1101/inc/
 
-SRC_CORE_DIRS := Core/MAIN/src Core/Flash/src Core/CC1101/src
+SRC_CORE_DIRS := Core/MAIN/src
 SRC_DRIVERS_DIR := Drivers/STM32F1xx_HAL_Driver/src
 SRC_SBL := tools/SBL/src
 
