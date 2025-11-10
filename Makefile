@@ -1,8 +1,8 @@
 # Author: M Pieklo
-# Date: 09.11.2025
+# Date: 10.11.2025
 # Project: co_driver.
 # License: Opensource
-# Version: 1.0.0
+# Version: 1.0.1
 
 include tools/makefiles/makefile_colors.mk
 include tools/makefiles/makefile_info.mk
@@ -19,6 +19,7 @@ NAME := $(OUT_DIR)/APP
 NAME_STARTUP_FILE := startup_stm32f103c8tx
 NAME_APP_LINKER_SCRIPT := STM32F103C8TX_FLASH_APP
 NAME_SBL_LINKER_SCRIPT := STM32F103C8TX_FLASH_SBL
+SBL_SIZE_KB := 8
 NAME_OPENOCD_CFG := stm32f1x
 DEVICE := STM32F103xB
 SW_FLAG := LORA_E32_RX
@@ -34,8 +35,13 @@ INC := \
 	-IDrivers/STM32F1xx_HAL_Driver/inc/ \
 	-IDrivers/CMSIS/Device/ST/STM32F1xx/Include/ \
 	-IDrivers/CMSIS/Include/ \
-	-Itools/Reuse/WS25Qxx/inc/ \
-	-Itools/Reuse/CC1101/inc/
+	-Itools/Reuse/CC1101/inc/ \
+	-Itools/Reuse/LCD12864/inc/ \
+	-Itools/Reuse/Lora/inc \
+	-Itools/Reuse/NRF24L01/inc/ \
+	-Itools/Reuse/SH1106/inc/ \
+	-Itools/Reuse/SI4432/inc/ \
+	-Itools/Reuse/WS25Qxx/inc/
 
 SRC_CORE_DIRS := Core/MAIN/src
 SRC_DRIVERS_DIR := Drivers/STM32F1xx_HAL_Driver/src
